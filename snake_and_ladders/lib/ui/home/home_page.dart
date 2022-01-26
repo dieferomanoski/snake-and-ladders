@@ -95,20 +95,10 @@ class _HomePageState extends State<HomePage> {
               flex: 2,
               child: BottomPlayers(
                 callback: () {
+                  // Overlay.of(context)?.insert(controller.getEntry(context));
+
                   setState(() {
                     controller.rollDice(context);
-                    // MotionToast(
-                    //   icon: Icons.person,
-                    //   dismissable: true,
-                    //   enableAnimation: true,
-                    //   primaryColor: !controller.isPlayerOneTurn
-                    //       ? Colors.blue
-                    //       : Colors.red,
-                    //   height: 150,
-                    //   description: Text(controller.roundMessage),
-                    //   toastDuration: Duration(milliseconds: 1500),
-                    //   position: MOTION_TOAST_POSITION.center,
-                    // ).show(context);
                   });
                 },
               ),

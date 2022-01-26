@@ -78,11 +78,15 @@ class BoardGrid extends StatelessWidget {
                       }).toList(),
                     ),
                     if (jogador1.casaAtual == indexAtual)
-                      Center(
+                      AnimatedPositioned(
+                        duration: Duration(milliseconds: 2000),
+                        curve: Curves.ease,
                         child: Image.asset(AssetsModel.playerBlue),
                       ),
                     jogador2.casaAtual == indexAtual
-                        ? Center(
+                        ? AnimatedPositioned(
+                            curve: Curves.ease,
+                            duration: Duration(milliseconds: 2000),
                             child: Image.asset(AssetsModel.playerRed),
                           )
                         : Container()
