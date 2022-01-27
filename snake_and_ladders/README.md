@@ -1,16 +1,26 @@
-# snake_and_ladders
+Teste Técnico 02 - Escribo
 
-A new Flutter project.
+### Implementar a parte lógica e a interface do jogo indiano "Cobras e Escadas"
 
-## Getting Started
+Pré-requisitos
+ - Para rodar este projeto, você deve ter instalado o Flutter.
 
-This project is a starting point for a Flutter application.
+ ## Para testar este projeto
+ # Clone este repositório
+ $ git clone https://github.com/dieferomanoski/snake-and-ladders
 
-A few resources to get you started if this is your first Flutter project:
+ # Vá para a pasta snake-and-ladders
+ $ cd .\snake-and-ladders
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ # Execute o comando pub get
+ $ flutter pub get
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ # PARA RODAR A APLICAÇÃO EM MODO DEBUG
+
+ $ flutter run
+
+ Escolha seu emulador de preferência
+
+# Caso deseja somente instalar a versão release do APK, aqui está o link
+https://drive.google.com/file/d/1lN20RDHkA2u8wxLChug38-En778mULja/view?usp=sharing
+
