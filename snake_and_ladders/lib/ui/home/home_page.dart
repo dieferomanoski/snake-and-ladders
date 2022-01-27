@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 // import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:motion_toast/motion_toast.dart';
 import 'package:motion_toast/resources/arrays.dart';
@@ -11,6 +10,7 @@ import 'package:snake_and_ladders/shared/utils/textstyles.model.dart';
 import 'package:snake_and_ladders/ui/home/components/board_grid.widget.dart';
 import 'package:snake_and_ladders/ui/home/components/bottom_players.widget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:snake_and_ladders/ui/home/widgets/shake_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,10 +22,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // final store = CobrasEscadasStore();
   final controller = CobrasEscadas();
+  final ShakeXController _shakeXController = ShakeXController();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -68,15 +68,21 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Image.asset(
-                        controller.imageArray[controller.randomIntForDiceOne],
-                        height: 150,
-                        width: 150,
+                      ShakeX(
+                        controller: _shakeXController,
+                        child: Image.asset(
+                          controller.imageArray[controller.randomIntForDiceOne],
+                          height: 100,
+                          width: 100,
+                        ),
                       ),
-                      Image.asset(
-                        controller.imageArray[controller.randomIntForDiceTwo],
-                        height: 150,
-                        width: 150,
+                      ShakeX(
+                        controller: _shakeXController,
+                        child: Image.asset(
+                          controller.imageArray[controller.randomIntForDiceTwo],
+                          height: 100,
+                          width: 100,
+                        ),
                       ),
                     ],
                   ),
@@ -94,9 +100,11 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               flex: 2,
               child: BottomPlayers(
-                callback: () {
+                isPlayerOneTurn: controller.isPlayerOneTurn,
+                callback: () async {
                   // Overlay.of(context)?.insert(controller.getEntry(context));
-
+                  _shakeXController.shake();
+                  await Future.delayed(Duration(milliseconds: 500));
                   setState(() {
                     controller.rollDice(context);
                   });

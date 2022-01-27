@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:snake_and_ladders/shared/utils/assets.model.dart';
 import 'package:snake_and_ladders/shared/utils/colors/colors.dart';
 import 'package:snake_and_ladders/shared/utils/textstyles.model.dart';
-import 'package:snake_and_ladders/stores/jogo.store.dart';
 
 class BottomPlayers extends StatelessWidget {
   final Function callback;
-  const BottomPlayers({Key? key, required this.callback}) : super(key: key);
+  final bool isPlayerOneTurn;
+  const BottomPlayers(
+      {Key? key, required this.callback, this.isPlayerOneTurn = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,14 @@ class BottomPlayers extends StatelessWidget {
                   "Jogador 1",
                   style: TextStylesModel.press2p.copyWith(fontSize: 10),
                 ),
-                Image.asset(AssetsModel.playerBlue)
+                Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: !isPlayerOneTurn
+                                ? Colors.transparent
+                                : Colors.yellow)),
+                    child: Image.asset(AssetsModel.playerBlue))
                 // Container(
                 //   color: Colors.greenAccent,
                 //   height: 30,
@@ -65,7 +74,14 @@ class BottomPlayers extends StatelessWidget {
                   "Jogador 2",
                   style: TextStylesModel.press2p.copyWith(fontSize: 10),
                 ),
-                Image.asset(AssetsModel.playerRed)
+                Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: isPlayerOneTurn
+                                ? Colors.transparent
+                                : Colors.yellow)),
+                    child: Image.asset(AssetsModel.playerRed))
                 // Container(
                 //   color: Colors.brown,
                 //   height: 30,

@@ -45,9 +45,6 @@ class CobrasEscadas {
     'image': AssetsModel.playerBlue
   };
 
-  bool isEscada = false;
-  bool isSnake = false;
-
   rollDice(BuildContext context) {
     randomIntForDiceOne = Random().nextInt(6);
     randomIntForDiceTwo = Random().nextInt(6);

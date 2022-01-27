@@ -3,7 +3,6 @@ import 'package:snake_and_ladders/models/cobras_escadas.model.dart';
 import 'package:snake_and_ladders/models/jogador.model.dart';
 import 'package:snake_and_ladders/shared/utils/assets.model.dart';
 import 'package:snake_and_ladders/shared/utils/colors/colors.dart';
-import 'package:snake_and_ladders/stores/jogador.store.dart';
 
 class BoardGrid extends StatelessWidget {
   final JogadorModel jogador1;
